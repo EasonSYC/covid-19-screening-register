@@ -69,7 +69,7 @@ function updateLook() {
 
         document.getElementById("info").innerHTML += personModel;
     }
-};
+}
 let refresh = document.getElementById("refresh");
 refresh.onclick = function() {getResidentList($("#unit").val(), $("#checked").val(), $("#ability").val()); updateLook();};
 let resetButton = document.getElementById("reset");
