@@ -70,4 +70,4 @@ function updateLook() {
     document.getElementsById("update").innerHTML = jsScript;
 };
 let refresh = document.getElementById("refresh");
-refresh.onclick = function() {getResidentList($("unit").val(), $("checked").val(), $("ability").val()); updateLook();}
+refresh.onclick = function() {getResidentList($(#"unit").val(), $(#"checked").val(), $(#"ability").val()); updateLook();}
