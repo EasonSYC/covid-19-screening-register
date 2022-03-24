@@ -68,6 +68,7 @@ function updateLook() {
         personModel = personModel.replace(/COLOR/g, bgColor[j]);
 
         document.getElementById("info").innerHTML += personModel;
+    }
 };
 let refresh = document.getElementById("refresh");
 refresh.onclick = function() {getResidentList($("#unit").val(), $("#checked").val(), $("#ability").val()); updateLook();};
