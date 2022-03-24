@@ -73,4 +73,11 @@ function updateLook() {
 let refresh = document.getElementById("refresh");
 refresh.onclick = function() {getResidentList($("#unit").val(), $("#checked").val(), $("#ability").val()); updateLook();};
 let resetButton = document.getElementById("reset");
-resetButton.onclick = function() {confirm("确认重置所有数据？不可撤销！"); reset(); alert("请刷新网页！")};
+resetButton.onclick = function() {
+    let conf = confirm("确认重置所有数据？不可撤销！");
+    if (conf === true) {
+        reset();
+        window.location.reload();
+    } else {
+        alert("撤销成功！")
+    }
