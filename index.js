@@ -26,7 +26,7 @@ let updateModel =   "document.getElementByID(\"loginNUM\").onclick = function() 
                     "document.getElementByID(\"liveNUM\").onclick = function() {loginInfo[NUM] = !liveInfo[NUM]}; updateLook(); pushData();" +
                     "document.getElementByID(\"workNUM\").onclick = function() {loginInfo[NUM] = !loginInfo[NUM]}; updateLook(); pushData();" +
                     "document.getElementByID(\"moveNUM\").onclick = function() {loginInfo[NUM] = !loginInfo[NUM]}; updateLook(); pushData();";
-let bgColor = ["", "green", "yellow", "orange", "red"];
+let bgColor = ["white", "green", "yellow", "orange", "red"];
 let genderText = ["男", "女"];
 let loginText = ["未签到", "已签到"];
 let liveText = ["在家生活", "在外生活"];
