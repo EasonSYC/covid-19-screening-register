@@ -30,13 +30,13 @@ let workText = ["在家工作", "在外工作"];
 let moveText = ["行动方便", "行动不便"];
 function trueOnClick(i, type) {
     if (type === "loginInfo") {
-        loginInfo[i] = (1 - parseInt(loginInfo[index])).toString();
+        loginInfo[i] = (1 - parseInt(loginInfo[i])).toString();
     } else if (type === "liveInfo") {
-        liveInfo[i] = (1 - parseInt(liveInfo[index])).toString();
+        liveInfo[i] = (1 - parseInt(liveInfo[i])).toString();
     } else if (type === "workInfo") {
-        workInfo[i] = (1 - parseInt(workInfo[index])).toString();
+        workInfo[i] = (1 - parseInt(workInfo[i])).toString();
     } else if (type === "moveInfo") {
-        moveInfo[i] = (1 - parseInt(moveInfo[index])).toString();
+        moveInfo[i] = (1 - parseInt(moveInfo[i])).toString();
     }
     updateLook();
     check(uaInfo[i], type);
