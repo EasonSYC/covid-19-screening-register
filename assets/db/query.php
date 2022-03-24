@@ -40,3 +40,4 @@ if (1 == 0) {
 } else {
 	echo json_encode($rowall);
 }
+?>
