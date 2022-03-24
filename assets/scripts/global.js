@@ -3,7 +3,7 @@ function check(n, requ) {
 		url: './assets/db/check.php',
 		type: 'post',
 		dataType: 'json',
-		data: { sid: n, req: requ },
+		data: { "sid": n, "req": requ },
 		async: false,
 		success: function (result) {
 			if (result != "success") alert("ERR: ERR_CHECK_REP");
@@ -18,7 +18,6 @@ function reset() {
 		url: './assets/db/reset.php',
 		type: 'post',
 		dataType: 'json',
-		data: datas,
 		async: false,
 		success: function (result) {
 			if (result != "success") alert("ERR: ERR_RESET_REP");
