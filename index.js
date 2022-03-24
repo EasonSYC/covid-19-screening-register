@@ -17,7 +17,7 @@ let lookModel =     "<tr bgcolor=\"COLOR\">" +
                     "<td>GENDER</td>" + 
                     "<td>ID</td>" + 
                     "<td>PHONE</td>" + 
-                    "<td><button =\"loginNUM\">LOGIN</button></td>" + 
+                    "<td><button id=\"loginNUM\">LOGIN</button></td>" + 
                     "<td><button id=\"liveNUM\">LIVE</button></td>" + 
                     "<td><button id=\"workNUM\">WORK</button></td>" + 
                     "<td><button id=\"moveNUM\">MOVE</button></td>" + 
