@@ -29,7 +29,6 @@ let liveText = ["在家生活", "在外生活"];
 let workText = ["在家工作", "在外工作"];
 let moveText = ["行动方便", "行动不便"];
 function updateLook() {
-    let infoHTML = titleModel;
     for (let i = 0; i < buildingInfo.length; ++i) {
         let personModel = lookModel;
         personModel = personModel.replace(/NUM/g, i);
@@ -55,14 +54,13 @@ function updateLook() {
         }
         personModel = personModel.replace(/COLOR/g, bgColor[j]);
 
-        infoHTML += personModel;
+        document.getElementById("info").innerHTML += personModel;
 
         document.getElementById("login" + i.toString()).onclick = function() {loginInfo[i] = (1 - parseInt(loginInfo[i])).toString(); updateLook(); check(uaInfo[i], "loginInfo");};
         document.getElementById("live" + i.toString()).onclick = function() {liveInfo[i] = (1 - parseInt(liveInfo[i])).toString(); updateLook(); check(uaInfo[i], "liveInfo");};
         document.getElementById("work" + i.toString()).onclick = function() {workInfo[i] = (1 - parseInt(workInfo[i])).toString(); updateLook(); check(uaInfo[i], "workInfo");};
         document.getElementById("move" + i.toString()).onclick = function() {moveInfo[i] = (1 - parseInt(moveInfo[i])).toString(); updateLook(); check(uaInfo[i], "moveInfo");};
     }
-    document.getElementById("info").innerHTML = infoHTML;
     alert("updateLook Success!!")
 };
 let refresh = document.getElementById("refresh");
