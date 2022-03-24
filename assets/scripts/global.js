@@ -1,9 +1,9 @@
-function check(n) {
+function check(n, requ) {
 	$.ajax({
 		url: './assets/db/check.php',
 		type: 'post',
 		dataType: 'json',
-		data: { pid: n },
+		data: { sid: n, req: requ },
 		async: false,
 		success: function (result) {
 			if (result != "success") alert("ERR: ERR_CHECK_REP");

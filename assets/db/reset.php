@@ -6,7 +6,7 @@ $utf = mysqli_query($conn, "set names utf8");
 
 
 
-$sql = mysqli_query($conn, "update set checked=0");
+$sql = mysqli_query($conn, "update resi set loginInfo=0");
 
 
 if (1 == 0) {

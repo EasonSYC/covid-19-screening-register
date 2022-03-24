@@ -6,16 +6,17 @@ $utf = mysqli_query($conn, "set names utf8");
 
 
 $syid = $_POST["sid"];
+$req = $_POST["req"];
 
 
-$sql = mysqli_query($conn, "select checked from resi where syid=$syid");
+$sql = mysqli_query($conn, "select $req from resi where syid=$syid");
 $row = mysqli_fetch_array($sql);
 $num = $row[0];
 
-$sql = mysqli_query($conn, "update resi set checked=1-$num where syid=$syid");
+$sql = mysqli_query($conn, "update resi set $req=1-$num where syid=$syid");
 
 if (1 == 0) {
 	echo json_encode('err');
 } else {
-	echo json_encode($rowall);
+	echo json_encode('success');
 }
