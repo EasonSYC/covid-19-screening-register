@@ -42,7 +42,7 @@ function trueOnClick(i, type) {
     check(uaInfo[i], type);
 }
 function updateLook() {
-    document.getElementById("info").innerHTML = "";
+    document.getElementById("info").innerHTML = titleModel;
     for (let i = 0; i < buildingInfo.length; ++i) {
         let personModel = lookModel;
         personModel = personModel.replace(/NUM/g, i);
