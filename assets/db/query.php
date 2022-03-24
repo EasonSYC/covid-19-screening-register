@@ -11,9 +11,9 @@ $ability = $_POST["ability"];
 
 
 $query = "";
-if ($unit != "-1") $query = query . "buildingInfo = " . $unit . " and ";
-if ($checked != "-1") $query = query . "loginInfo = " . $checked . " and ";
-if ($ability != "-1") $query = query . "moveInfo = " . $ability . " and ";
+if ($unit != "-1") $query = $query . "buildingInfo = " . $unit . " and ";
+if ($checked != "-1") $query = $query . "loginInfo = " . $checked . " and ";
+if ($ability != "-1") $query = $query . "moveInfo = " . $ability . " and ";
 if ($query != "") {
 	$query = substr($query, 0, -5);
 	$query = "where " . $query;
@@ -29,7 +29,7 @@ do {
 } while ($row = mysqli_fetch_array($sql));
 $rowall = '';
 for ($i = 0; $i < count($rows); $i++) {
-	for ($j = 0; $j < 9; $j++) {
+	for ($j = 1; $j < 10; $j++) {
 		$rowall = $rowall . $rows[$i][$j] . ',';
 	}
 	$rowall = $rowall . $rows[$i][$j] . ';';
