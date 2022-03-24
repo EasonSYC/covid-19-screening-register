@@ -22,7 +22,7 @@ let lookModel =     "<tr bgcolor=\"COLOR\">" +
                     "<td><button id=\"workNUM\">WORK</button></td>" + 
                     "<td><button id=\"moveNUM\">MOVE</button></td>" + 
                     "</tr>";
-let updateModel =   "document.getElementById(\"loginNUM\").onclick = function() {loginInfo[NUM] = (1 - parseInt(loginInfo[NUM])).toString(); updateLook(); check(UA, \"loginInfo\");};" +
+let updateModel =   "document.getElementById(\"loginNUM\").onclick = function() {loginInfo[NUM] = (1 - parseInt(loginInfo[NUM])).toString(); updateLook(); alert(\"fuck yyx\"); check(UA, \"loginInfo\");};" +
                     "document.getElementById(\"liveNUM\").onclick = function() {liveInfo[NUM] = (1 - parseInt(liveInfo[NUM])).toString(); updateLook(); check(UA, \"liveInfo\");};" +
                     "document.getElementById(\"workNUM\").onclick = function() {workInfo[NUM] = (1 - parseInt(workInfo[NUM])).toString(); updateLook(); check(UA, \"workInfo\");};" +
                     "document.getElementById(\"moveNUM\").onclick = function() {moveInfo[NUM] = (1 - parseInt(moveInfo[NUM])).toString(); updateLook(); check(UA, \"moveInfo\");};";
