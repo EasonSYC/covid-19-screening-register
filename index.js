@@ -66,8 +66,8 @@ function updateLook() {
         infoHTML += personModel;
         jsScript += buttonModel;
     }
-    document.getElementsById("info").innerHTML = infoHTML;
-    document.getElementsById("update").innerHTML = jsScript;
+    document.getElementById("info").innerHTML = infoHTML;
+    document.getElementById("update").innerHTML = jsScript;
 };
 let refresh = document.getElementById("refresh");
 refresh.onclick = function() {getResidentList($("#unit").val(), $("#checked").val(), $("#ability").val()); updateLook();}
