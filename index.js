@@ -22,10 +22,6 @@ let lookModel =     "<tr bgcolor=\"COLOR\">" +
                     "<td><button id=\"workNUM\">WORK</button></td>" + 
                     "<td><button id=\"moveNUM\">MOVE</button></td>" + 
                     "</tr>";
-let updateModel =   "document.getElementById(\"loginNUM\").onclick = function() {loginInfo[NUM] = (1 - parseInt(loginInfo[NUM])).toString(); updateLook(); check(UA, \"loginInfo\");};" +
-                    "document.getElementById(\"liveNUM\").onclick = function() {liveInfo[NUM] = (1 - parseInt(liveInfo[NUM])).toString(); updateLook(); check(UA, \"liveInfo\");};" +
-                    "document.getElementById(\"workNUM\").onclick = function() {workInfo[NUM] = (1 - parseInt(workInfo[NUM])).toString(); updateLook(); check(UA, \"workInfo\");};" +
-                    "document.getElementById(\"moveNUM\").onclick = function() {moveInfo[NUM] = (1 - parseInt(moveInfo[NUM])).toString(); updateLook(); check(UA, \"moveInfo\");};";
 let bgColor = ["white", "green", "yellow", "orange", "red"];
 let genderText = ["男", "女"];
 let loginText = ["未签到", "已签到"];
@@ -34,10 +30,8 @@ let workText = ["在家工作", "在外工作"];
 let moveText = ["行动方便", "行动不便"];
 function updateLook() {
     let infoHTML = titleModel;
-    let jsScript = "";
     for (let i = 0; i < buildingInfo.length; ++i) {
         let personModel = lookModel;
-        let buttonModel = updateModel;
         personModel = personModel.replace(/NUM/g, i);
         personModel = personModel.replace(/BUILDING/g, buildingInfo[i]);
         personModel = personModel.replace(/ROOM/g, roomInfo[i]);
@@ -61,18 +55,15 @@ function updateLook() {
         }
         personModel = personModel.replace(/COLOR/g, bgColor[j]);
 
-        buttonModel = buttonModel.replace(/NUM/g, i);
-        buttonModel = buttonModel.replace(/UA/g, uaInfo[i]);
-
         infoHTML += personModel;
-        jsScript += buttonModel;
+
+        document.getElementById("login" + i.toString()).onclick = function() {loginInfo[i] = (1 - parseInt(loginInfo[i])).toString(); updateLook(); check(uaInfo[i], "loginInfo");};
+        document.getElementById("live" + i.toString()).onclick = function() {liveInfo[i] = (1 - parseInt(liveInfo[i])).toString(); updateLook(); check(uaInfo[i], "liveInfo");};
+        document.getElementById("work" + i.toString()).onclick = function() {workInfo[i] = (1 - parseInt(workInfo[i])).toString(); updateLook(); check(uaInfo[i], "workInfo");};
+        document.getElementById("move" + i.toString()).onclick = function() {moveInfo[i] = (1 - parseInt(moveInfo[i])).toString(); updateLook(); check(uaInfo[i], "moveInfo");};
     }
     document.getElementById("info").innerHTML = infoHTML;
     alert("updateLook Success!!")
-    
-    document.getElementById("update").innerHTML = jsScript;
-
-    alert("updateCode Success!!")
 };
 let refresh = document.getElementById("refresh");
 refresh.onclick = function() {getResidentList($("#unit").val(), $("#checked").val(), $("#ability").val()); updateLook();};
