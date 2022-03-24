@@ -35,7 +35,7 @@ let moveText = ["行动方便", "行动不便"];
 function updateLook() {
     let infoHTML = titleModel;
     let jsScript = "";
-    for (let i = 0; i < buildingInfo.length(); ++i) {
+    for (let i = 0; i < buildingInfo.length; ++i) {
         let personModel = lookModel;
         let buttonModel = updateModel;
         personModel = personModel.replace(/NUM/g, i);
