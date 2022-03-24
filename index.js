@@ -17,10 +17,10 @@ let lookModel =     "<tr bgcolor=\"COLOR\">" +
                     "<td>GENDER</td>" + 
                     "<td>ID</td>" + 
                     "<td>PHONE</td>" + 
-                    "<td><button id=\"loginNUM\" onclick=trueOnClick(NUM, \"loginInfo\")>LOGIN</button></td>" + 
-                    "<td><button id=\"liveNUM\" onclick=trueOnClick(NUM, \"liveInfo\")>LIVE</button></td>" + 
-                    "<td><button id=\"workNUM\" onclick=trueOnClick(NUM, \"workInfo\")>WORK</button></td>" + 
-                    "<td><button id=\"moveNUM\" onclick=trueOnClick(NUM, \"moveInfo\")>MOVE</button></td>" + 
+                    "<td><button id=\"loginNUM\" onclick=\"trueOnClick(NUM, \'loginInfo\');\">LOGIN</button></td>" + 
+                    "<td><button id=\"liveNUM\" onclick=\"trueOnClick(NUM, \'liveInfo\');\">LIVE</button></td>" + 
+                    "<td><button id=\"workNUM\" onclick=\"trueOnClick(NUM, \'workInfo\');\">WORK</button></td>" + 
+                    "<td><button id=\"moveNUM\" onclick=\"trueOnClick(NUM, \'moveInfo\');\">MOVE</button></td>" + 
                     "</tr>";
 let bgColor = ["white", "green", "yellow", "orange", "red"];
 let genderText = ["男", "女"];
