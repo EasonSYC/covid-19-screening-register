@@ -50,13 +50,13 @@ function updateLook() {
         personModel = personModel.replace(/WORK/g, workText[workInfo[i]]);
         personModel = personModel.replace(/MOVE/g, moveText[moveInfo[i]]);
         let j = 0;
-        if (loginInfo[i] === 1) {
+        if (loginInfo[i] === "1") {
             j = 1;
-        } else if (liveInfo[i] === 1) {
+        } else if (liveInfo[i] === "1") {
             j = 2;
-        } else if (workInfo[i] === 1) {
+        } else if (workInfo[i] === "1") {
             j = 3;
-        } else if (moveInfo[i] === 1) {
+        } else if (moveInfo[i] === "1") {
             j = 4;
         }
         personModel = personModel.replace(/COLOR/g, bgColor[j]);
