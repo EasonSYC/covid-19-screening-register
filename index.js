@@ -49,17 +49,17 @@ function updateLook() {
         personModel = personModel.replace(/LIVE/g, liveText[liveInfo[i]]);
         personModel = personModel.replace(/WORK/g, workText[workInfo[i]]);
         personModel = personModel.replace(/MOVE/g, moveText[moveInfo[i]]);
-        let i = 0
+        let j = 0
         if (loginInfo[i]) {
-            i = 1;
+            j = 1;
         } else if (liveInfo[i]) {
-            i = 2;
+            j = 2;
         } else if (workInfo[i]) {
-            i = 3;
+            j = 3;
         } else if (moveInfo[i]) {
-            i = 4;
+            j = 4;
         }
-        personModel = personModel.replace(/COLOR/g, bgColor[i]);
+        personModel = personModel.replace(/COLOR/g, bgColor[j]);
 
         buttonModel = buttonModel.replace(/NUM/g, i);
 
