@@ -11,15 +11,15 @@ $ability = $_POST["ability"];
 
 
 $query = "";
-if ($unit != "-1") $query += "buildingInfo = " + $unit + " and ";
-if ($checked != "-1") $query += "loginInfo = " + $checked + " and ";
-if ($ability != "-1") $query += "moveInfo = " + $ability + " and ";
+if ($unit != "-1") $query = query . "buildingInfo = " . $unit . " and ";
+if ($checked != "-1") $query = query . "loginInfo = " . $checked . " and ";
+if ($ability != "-1") $query = query . "moveInfo = " . $ability . " and ";
 if ($query != "") {
 	$query = substr($query, 0, -5);
-	$query = "where " + $query;
+	$query = "where " . $query;
 }
 
-$sql = mysqli_query($conn, "select * from resi " + $query);
+$sql = mysqli_query($conn, "select * from resi " . $query);
 
 $i = 0;
 $row = mysqli_fetch_array($sql);
