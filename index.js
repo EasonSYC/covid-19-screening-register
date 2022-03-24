@@ -8,7 +8,7 @@ let titleModel =    "<tr>" +
                     "<td>签到情况</td>" + 
                     "<td>居住情况</td>" + 
                     "<td>工作情况</td>" + 
-                    "<td><button id=\"moveID\">MOVE</button></td>" + 
+                    "<td>行动情况</td>" + 
                     "</tr>";
 let lookModel =     "<tr bgcolor=\"COLOR\">" + 
                     "<td>BUILDING</td>" +
