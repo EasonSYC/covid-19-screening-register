@@ -72,3 +72,5 @@ function updateLook() {
 };
 let refresh = document.getElementById("refresh");
 refresh.onclick = function() {getResidentList($("#unit").val(), $("#checked").val(), $("#ability").val()); updateLook();};
+let reset = document.getElementById("reset");
+reset.onclick = function() {confirm("确认重置所有数据？不可撤销！"); reset(); alert("请刷新网页！")};
