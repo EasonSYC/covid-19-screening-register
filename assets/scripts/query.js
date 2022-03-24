@@ -1,7 +1,7 @@
 function getResidentList(unit, checked, ability) {
 	let datas = { "unit": unit, "checked": checked, "ability": ability };
 	let buildingInfo = new Array(), roomInfo = new Array(), nameInfo = new Array(), genderInfo = new Array(), idInfo = new Array(),
-	phoneInfo = new Array(), loginInfo = new Array(), liveInfo = new Array(), workInfo = new Array(), moveInfo = new Array();
+	phoneInfo = new Array(), loginInfo = new Array(), liveInfo = new Array(), workInfo = new Array(), moveInfo = new Array(), resi = new Array();
 	$.ajax({
 		url: './assets/db/query.php',
 		type: 'post',
