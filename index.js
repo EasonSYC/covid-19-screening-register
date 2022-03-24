@@ -17,10 +17,10 @@ let lookModel =     "<tr bgcolor=\"COLOR\">" +
                     "<td>GENDER</td>" + 
                     "<td>ID</td>" + 
                     "<td>PHONE</td>" + 
-                    "<td><button id=\"loginNUM\" onclick=\"trueOnClick(NUM, loginInfo);\">LOGIN</button></td>" + 
-                    "<td><button id=\"liveNUM\" onclick=\"trueOnClick(NUM, liveInfo);\">LIVE</button></td>" + 
-                    "<td><button id=\"workNUM\" onclick=\"trueOnClick(NUM, workInfo);\">WORK</button></td>" + 
-                    "<td><button id=\"moveNUM\" onclick=\"trueOnClick(NUM, moveInfo);\">MOVE</button></td>" + 
+                    "<td><button id=\"loginNUM\" onclick=\"trueOnClick(NUM, \"loginInfo\");\">LOGIN</button></td>" + 
+                    "<td><button id=\"liveNUM\" onclick=\"trueOnClick(NUM, \"liveInfo\");\">LIVE</button></td>" + 
+                    "<td><button id=\"workNUM\" onclick=\"trueOnClick(NUM, \"workInfo\");\">WORK</button></td>" + 
+                    "<td><button id=\"moveNUM\" onclick=\"trueOnClick(NUM, \"moveInfo\");\">MOVE</button></td>" + 
                     "</tr>";
 let bgColor = ["white", "green", "yellow", "orange", "red"];
 let genderText = ["男", "女"];
@@ -31,11 +31,11 @@ let moveText = ["行动方便", "行动不便"];
 function trueOnClick(i, type) {
     if (type === "loginInfo") {
         loginInfo[i] = (1 - parseInt(loginInfo[index])).toString();
-    } else if (type === "liveTnfo") {
+    } else if (type === "liveInfo") {
         liveInfo[i] = (1 - parseInt(liveInfo[index])).toString();
-    } else if (type === "workTnfo") {
+    } else if (type === "workInfo") {
         workInfo[i] = (1 - parseInt(workInfo[index])).toString();
-    } else if (type === "moveTnfo") {
+    } else if (type === "moveInfo") {
         moveInfo[i] = (1 - parseInt(moveInfo[index])).toString();
     }
     updateLook();
