@@ -12,7 +12,7 @@
     <script type="text/javascript" src="./assets/scripts/global.js"></script>
 </head>
 <body>
-    <h1 style="text-align: center">人员登记管理系统 - 核算检测应急特供版</h1>
+    <h1 style="text-align: center">人员登记管理系统 - 应急特供版</h1>
     <br>
     <label>单元：</label>
     <select id="unit" style="width: auto">
@@ -32,7 +32,6 @@
         <option value="14">14</option>
         <option value="15">15</option>
         <option value="16">16</option>
-        <option value="-1">所有</option>
     </select>
     <label>检查：</label>
     <select id="checked" style="width: auto">
@@ -54,8 +53,7 @@
             
         </table>
     </div>
-    <script src="index.js"></script>
-    <script id="update"></script>
+    <script src="index.js"></script>å
     <script>
         getResidentList($("#unit").val(), $("#checked").val(), $("#ability").val());
         updateLook();
