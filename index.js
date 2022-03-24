@@ -56,10 +56,26 @@ function updateLook() {
 
         document.getElementById("info").innerHTML += personModel;
 
-        document.getElementById("login" + i.toString()).onclick = function() {loginInfo[i] = (1 - parseInt(loginInfo[i])).toString(); updateLook(); check(uaInfo[i], "loginInfo");};
-        document.getElementById("live" + i.toString()).onclick = function() {liveInfo[i] = (1 - parseInt(liveInfo[i])).toString(); updateLook(); check(uaInfo[i], "liveInfo");};
-        document.getElementById("work" + i.toString()).onclick = function() {workInfo[i] = (1 - parseInt(workInfo[i])).toString(); updateLook(); check(uaInfo[i], "workInfo");};
-        document.getElementById("move" + i.toString()).onclick = function() {moveInfo[i] = (1 - parseInt(moveInfo[i])).toString(); updateLook(); check(uaInfo[i], "moveInfo");};
+        $("#login" + i.toString).on("click", function() {
+            loginInfo[i] = (1 - parseInt(loginInfo[i])).toString();
+            updateLook();
+            check(uaInfo[i], "loginInfo");
+        });
+        $("#live" + i.toString).on("click", function() {
+            liveInfo[i] = (1 - parseInt(liveInfo[i])).toString();
+            updateLook();
+            check(uaInfo[i], "liveInfo");
+        });
+        $("#work" + i.toString).on("click", function() {
+            workInfo[i] = (1 - parseInt(workInfo[i])).toString();
+            updateLook();
+            check(uaInfo[i], "workInfo");
+        });
+        $("#move" + i.toString).on("click", function() {
+            moveInfo[i] = (1 - parseInt(moveInfo[i])).toString();
+            updateLook();
+            check(uaInfo[i], "moveInfo");
+        });
     }
     alert("updateLook Success!!")
 };
