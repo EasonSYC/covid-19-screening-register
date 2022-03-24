@@ -9,8 +9,11 @@
 <body>
     <h1 style="text-align: center">人员登记管理系统 - 核算检测应急特供版</h1>
     <br>
+    <label>单元：</label>
     <input id="unit" type="text" value="-1" style="width: 100px">
+    <label>检查：</label>
     <input id="checked" type="text" value="-1" style="width: 100px">
+    <label>行动：</label>
     <input id="ability" type="text" value="-1" style="width: 100px">
     <button id="refresh">刷新</button>
     <br>
@@ -21,5 +24,9 @@
     </div>
     <script src="index.js"></script>
     <script id="update"></script>
+    <script>
+        getResidentList($("unit").val(), $("checked").val(), $("ability").val());
+        updateLook();
+    </script>
 </body>
 </html>
