@@ -17,10 +17,10 @@ let lookModel =     "<tr bgcolor=\"COLOR\">" +
                     "<td>GENDER</td>" + 
                     "<td>ID</td>" + 
                     "<td>PHONE</td>" + 
-                    "<td><button id=\"loginNUM\">LOGIN</button></td>" + 
-                    "<td><button id=\"liveNUM\">LIVE</button></td>" + 
-                    "<td><button id=\"workNUM\">WORK</button></td>" + 
-                    "<td><button id=\"moveNUM\">MOVE</button></td>" + 
+                    "<td><button id=\"loginNUM\" onclick=\"trueOnClick(NUM, loginInfo);\">LOGIN</button></td>" + 
+                    "<td><button id=\"liveNUM\" onclick=\"trueOnClick(NUM, liveInfo);\">LIVE</button></td>" + 
+                    "<td><button id=\"workNUM\" onclick=\"trueOnClick(NUM, workInfo);\">WORK</button></td>" + 
+                    "<td><button id=\"moveNUM\" onclick=\"trueOnClick(NUM, moveInfo);\">MOVE</button></td>" + 
                     "</tr>";
 let bgColor = ["white", "green", "yellow", "orange", "red"];
 let genderText = ["男", "女"];
@@ -28,6 +28,19 @@ let loginText = ["未签到", "已签到"];
 let liveText = ["在家生活", "在外生活"];
 let workText = ["在家工作", "在外工作"];
 let moveText = ["行动方便", "行动不便"];
+function trueOnClick(i, type) {
+    if (type === "loginInfo") {
+        loginInfo[i] = (1 - parseInt(loginInfo[index])).toString();
+    } else if (type === "liveTnfo") {
+        liveInfo[i] = (1 - parseInt(liveInfo[index])).toString();
+    } else if (type === "workTnfo") {
+        workInfo[i] = (1 - parseInt(workInfo[index])).toString();
+    } else if (type === "moveTnfo") {
+        moveInfo[i] = (1 - parseInt(moveInfo[index])).toString();
+    }
+    updateLook();
+    check(uaInfo[i], type);
+}
 function updateLook() {
     for (let i = 0; i < buildingInfo.length; ++i) {
         let personModel = lookModel;
@@ -55,29 +68,6 @@ function updateLook() {
         personModel = personModel.replace(/COLOR/g, bgColor[j]);
 
         document.getElementById("info").innerHTML += personModel;
-
-        $("#login" + i.toString()).on("click", function() {
-            loginInfo[i] = (1 - parseInt(loginInfo[i])).toString();
-            updateLook();
-            check(uaInfo[i], "loginInfo");
-        });
-        $("#live" + i.toString()).on("click", function() {
-            liveInfo[i] = (1 - parseInt(liveInfo[i])).toString();
-            updateLook();
-            check(uaInfo[i], "liveInfo");
-        });
-        $("#work" + i.toString()).on("click", function() {
-            workInfo[i] = (1 - parseInt(workInfo[i])).toString();
-            updateLook();
-            check(uaInfo[i], "workInfo");
-        });
-        $("#move" + i.toString()).on("click", function() {
-            moveInfo[i] = (1 - parseInt(moveInfo[i])).toString();
-            updateLook();
-            check(uaInfo[i], "moveInfo");
-        });
-    }
-    alert("updateLook Success!!")
 };
 let refresh = document.getElementById("refresh");
 refresh.onclick = function() {getResidentList($("#unit").val(), $("#checked").val(), $("#ability").val()); updateLook();};
