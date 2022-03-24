@@ -33,7 +33,7 @@ function getResidentList(unit, checked, ability) {
 				return max;
 			}
 			resi = changearr(resi);
-			[buildingInfo, roomInfo, nameInfo, genderInfo, idInfo, phoneInfo, loginInfo, liveInfo, workInfo, moveInfo] = resi;
+			[uaInfo, buildingInfo, roomInfo, nameInfo, genderInfo, idInfo, phoneInfo, loginInfo, liveInfo, workInfo, moveInfo] = resi;
 		},
 		error: function () {
 			alert("FATAL_ERR: ERR_QUERY_PHP");
