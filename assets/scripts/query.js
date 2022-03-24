@@ -33,6 +33,7 @@ function getResidentList(unit, checked, ability) {
 				return max;
 			}
 			resi = changearr(resi);
+			uaInfo = [], buildingInfo = [], roomInfo = [], nameInfo = [], genderInfo = [], idInfo = [], phoneInfo = [], loginInfo = [], liveInfo = [], workInfo = [], moveInfo = [];
 			[uaInfo, buildingInfo, roomInfo, nameInfo, genderInfo, idInfo, phoneInfo, loginInfo, liveInfo, workInfo, moveInfo] = resi;
 		},
 		error: function () {
