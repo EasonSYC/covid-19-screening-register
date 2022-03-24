@@ -11,9 +11,9 @@ $ability = $_POST["ability"];
 
 
 $query = "";
-if ($unit != "-1") $query += "unit = " + $unit + " and ";
-if ($checked != "-1") $query += "checked = " + $checked + " and ";
-if ($ability != "-1") $query += "ability = " + $ability + " and ";
+if ($unit != "-1") $query += "buildingInfo = " + $unit + " and ";
+if ($checked != "-1") $query += "loginInfo = " + $checked + " and ";
+if ($ability != "-1") $query += "moveInfo = " + $ability + " and ";
 if ($query != "") {
 	$query = substr($query, 0, -5);
 	$query = "where " + $query;
