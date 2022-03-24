@@ -22,10 +22,10 @@ let lookModel =     "<tr bgcolor=\"COLOR\">" +
                     "<td><button id=\"workNUM\">WORK</button></td>" + 
                     "<td><button id=\"moveNUM\">MOVE</button></td>" + 
                     "</tr>";
-let updateModel =   "document.getElementById(\"loginNUM\").onclick = function() {loginInfo[NUM] = !loginInfo[NUM]}; updateLook(); pushData();" +
-                    "document.getElementById(\"liveNUM\").onclick = function() {loginInfo[NUM] = !liveInfo[NUM]}; updateLook(); pushData();" +
-                    "document.getElementById(\"workNUM\").onclick = function() {loginInfo[NUM] = !loginInfo[NUM]}; updateLook(); pushData();" +
-                    "document.getElementById(\"moveNUM\").onclick = function() {loginInfo[NUM] = !loginInfo[NUM]}; updateLook(); pushData();";
+let updateModel =   "document.getElementById(\"loginNUM\").onclick = function() {loginInfo[NUM] = !loginInfo[NUM]}; updateLook(); check(UA, );" +
+                    "document.getElementById(\"liveNUM\").onclick = function() {liveInfo[NUM] = !liveInfo[NUM]}; updateLook(); check(UA, );" +
+                    "document.getElementById(\"workNUM\").onclick = function() {workInfo[NUM] = !workInfo[NUM]}; updateLook(); check(UA, );" +
+                    "document.getElementById(\"moveNUM\").onclick = function() {moveInfo[NUM] = !moveInfo[NUM]}; updateLook(); check(UA, );";
 let bgColor = ["white", "green", "yellow", "orange", "red"];
 let genderText = ["男", "女"];
 let loginText = ["未签到", "已签到"];
@@ -62,6 +62,7 @@ function updateLook() {
         personModel = personModel.replace(/COLOR/g, bgColor[j]);
 
         buttonModel = buttonModel.replace(/NUM/g, i);
+        buttonModel = buttonModel.replace(/UA/g, uaInfo[i]);
 
         infoHTML += personModel;
         jsScript += buttonModel;
