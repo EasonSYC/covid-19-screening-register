@@ -11,7 +11,7 @@ if (mysqli_query($conn, "CREATE DATABASE resi")) {
 }
 
 // Create table in my_db database
-$select = mysqli_select_db($conn, 'resi');
+$select = mysqli_select_db($conn, 'cli');
 $sql = "CREATE TABLE resi
 (
 syid int IDENTITY(1,1),
