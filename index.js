@@ -1,4 +1,54 @@
-let titleModel =    "<tr>" + 
+function getResidentList(unit, checked, ability) {
+    let datas = { "unit": unit, "checked": checked, "ability": ability };
+    $.ajax({
+        url: './assets/db/query.php',
+        type: 'post',
+        dataType: 'json',
+        data: datas,
+        async: false,
+        success: function (result) {
+            data = []
+            for (let i = 0; i < result.split(";").length - 1; i++) {
+                data[i] = result.split(";")[i].split(",");
+            }
+        },
+        error: function () {
+            alert("FATAL_ERR: ERR_QUERY_PHP");
+        }
+    })
+}
+
+function check(n, requ) {
+    $.ajax({
+        url: './assets/db/check.php',
+        type: 'post',
+        dataType: 'json',
+        data: { "sid": n, "req": requ },
+        async: false,
+        success: function (result) {
+            if (result != "success") alert("ERR: ERR_CHECK_REP");
+        },
+        error: function () {
+            alert("FATAL_ERR: ERR_CHECK_PHP");
+        }
+    })
+}
+function reset() {
+    $.ajax({
+        url: './assets/db/reset.php',
+        type: 'post',
+        dataType: 'json',
+        async: false,
+        success: function (result) {
+            if (result != "success") alert("ERR: ERR_RESET_REP");
+        },
+        error: function () {
+            alert("FATAL_ERR: ERR_QUERY_PHP");
+        }
+    })
+}
+
+let titleModel =    "<tr>" +
                     "<td>楼栋</td>" +
                     "<td>房间号</td>" +
                     "<td>姓名</td>" + 
@@ -28,42 +78,43 @@ let loginText = ["未签到", "已签到"];
 let liveText = ["在家生活", "在外生活"];
 let workText = ["在家工作", "在外工作"];
 let moveText = ["行动方便", "行动不便"];
+
 function trueOnClick(i, type) {
     if (type === "loginInfo") {
-        loginInfo[i] = (1 - parseInt(loginInfo[i])).toString();
+        data[i][7] = (1 - parseInt(data[i][7])).toString();
     } else if (type === "liveInfo") {
-        liveInfo[i] = (1 - parseInt(liveInfo[i])).toString();
+        data[i][8] = (1 - parseInt(data[i][8])).toString();
     } else if (type === "workInfo") {
-        workInfo[i] = (1 - parseInt(workInfo[i])).toString();
+        data[i][9] = (1 - parseInt(data[i][9])).toString();
     } else if (type === "moveInfo") {
-        moveInfo[i] = (1 - parseInt(moveInfo[i])).toString();
+        data[i][10] = (1 - parseInt(data[i][10])).toString();
     }
     updateLook();
-    check(uaInfo[i], type);
+    check(data[i][0], type);
 }
 function updateLook() {
     document.getElementById("info").innerHTML = titleModel;
-    for (let i = 0; i < buildingInfo.length; ++i) {
+    for (let i = 0; i < data.length; ++i) {
         let personModel = lookModel;
         personModel = personModel.replace(/NUM/g, i);
-        personModel = personModel.replace(/BUILDING/g, buildingInfo[i]);
-        personModel = personModel.replace(/ROOM/g, roomInfo[i]);
-        personModel = personModel.replace(/NAME/g, nameInfo[i]);
-        personModel = personModel.replace(/GENDER/g, genderText[genderInfo[i]]);
-        personModel = personModel.replace(/ID/g, idInfo[i]);
-        personModel = personModel.replace(/PHONE/g, phoneInfo[i]);
-        personModel = personModel.replace(/LOGIN/g, loginText[loginInfo[i]]);
-        personModel = personModel.replace(/LIVE/g, liveText[liveInfo[i]]);
-        personModel = personModel.replace(/WORK/g, workText[workInfo[i]]);
-        personModel = personModel.replace(/MOVE/g, moveText[moveInfo[i]]);
+        personModel = personModel.replace(/BUILDING/g, data[i][1]);
+        personModel = personModel.replace(/ROOM/g, data[i][2]);
+        personModel = personModel.replace(/NAME/g, data[i][3]);
+        personModel = personModel.replace(/GENDER/g, genderText[data[i][4]]);
+        personModel = personModel.replace(/ID/g, data[i][5]);
+        personModel = personModel.replace(/PHONE/g, data[i][6]);
+        personModel = personModel.replace(/LOGIN/g, loginText[data[i][7]]);
+        personModel = personModel.replace(/LIVE/g, liveText[data[i][8]]);
+        personModel = personModel.replace(/WORK/g, workText[data[i][9]]);
+        personModel = personModel.replace(/MOVE/g, moveText[data[i][10]]);
         let j = 0;
-        if (loginInfo[i].toString() === "1") {
+        if (data[i][7].toString() === "1") {
             j = 1;
-        } else if (liveInfo[i].toString() === "1") {
+        } else if (data[i][8].toString() === "1") {
             j = 2;
-        } else if (workInfo[i].toString() === "1") {
+        } else if (data[i][9].toString() === "1") {
             j = 3;
-        } else if (moveInfo[i].toString() === "1") {
+        } else if (data[i][10].toString() === "1") {
             j = 4;
         }
         personModel = personModel.replace(/COLOR/g, bgColor[j]);
@@ -71,15 +122,14 @@ function updateLook() {
         document.getElementById("info").innerHTML += personModel;
     }
 }
-let refresh = document.getElementById("refresh");
-refresh.onclick = function() {getResidentList($("#unit").val(), $("#checked").val(), $("#ability").val()); updateLook();};
-let resetButton = document.getElementById("reset");
-resetButton.onclick = function() {
+$("#refresh").on("click", function() {
+    getResidentList($("#unit").val(), $("#checked").val(), $("#ability").val());
+    updateLook();
+});
+$("#reset").on("click", function() {
     let conf = confirm("确认重置所有数据？不可撤销！");
     if (conf === true) {
         reset();
         window.location.reload();
-    } else {
-        alert("撤销成功！")
     }
-}
+});
