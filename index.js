@@ -16,7 +16,7 @@ let lookModel =     "<tr bgcolor=\"COLOR\">" +
                     "<td>NAME</td>" + 
                     "<td>GENDER</td>" + 
                     "<td>ID</td>" + 
-                    "<td>PHONE</td>" + 
+                    "<td><a href=\"tel: PHONE\">PHONE</a></td>" +
                     "<td><button id=\"loginNUM\" onclick=\"trueOnClick(NUM, \'loginInfo\');\">LOGIN</button></td>" + 
                     "<td><button id=\"liveNUM\" onclick=\"trueOnClick(NUM, \'liveInfo\');\">LIVE</button></td>" + 
                     "<td><button id=\"workNUM\" onclick=\"trueOnClick(NUM, \'workInfo\');\">WORK</button></td>" + 
