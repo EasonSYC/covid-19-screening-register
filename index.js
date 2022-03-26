@@ -13,7 +13,8 @@ function getResidentList(unit, checked, ability) {
             }
         },
         error: function () {
-            alert("FATAL_ERR: ERR_QUERY_PHP");
+            console.log("FATAL_ERR: ERR_QUERY_PHP");
+            alert("没有符合条件的数据！")
         }
     })
 }
@@ -26,10 +27,14 @@ function check(n, requ) {
         data: { "sid": n, "req": requ },
         async: false,
         success: function (result) {
-            if (result != "success") alert("ERR: ERR_CHECK_REP");
+            if (result !== "success") {
+                console.log("ERR: ERR_CHECK_REP");
+                alert("更新数据失败！");
+            }
         },
         error: function () {
-            alert("FATAL_ERR: ERR_CHECK_PHP");
+            console.log("FATAL_ERR: ERR_CHECK_PHP");
+            alert("更新数据失败！");
         }
     })
 }
@@ -40,10 +45,16 @@ function reset() {
         dataType: 'json',
         async: false,
         success: function (result) {
-            if (result != "success") alert("ERR: ERR_RESET_REP");
+            if (result !== "success") {
+                console.log("ERR: ERR_RESET_REP");
+                alert("重置数据失败！");
+            } else {
+                alert("重置数据成功！");
+            }
         },
         error: function () {
-            alert("FATAL_ERR: ERR_QUERY_PHP");
+            console.log("FATAL_ERR: ERR_QUERY_PHP");
+            alert("重置数据失败！");
         }
     })
 }
