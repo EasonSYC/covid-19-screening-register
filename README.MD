@@ -10,3 +10,6 @@ Managing personal info and logging in at a Covid-19 Test Site.
  - Import Info With csv Files
  - Use Check to confirm a Login
  - Refresh and Uncheck is Possible
+
+#### Credits
+ - [phpMyAdmin](https://www.phpmyadmin.net/)
