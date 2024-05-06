@@ -1,6 +1,6 @@
-# Personal Info Management
+# COVID-19 Screening Register
 
-First used for logging-in at Covid-19 Test Site.
+First used for logging-in at a Covid-19 Test Site.
 
 #### Introduction
 
